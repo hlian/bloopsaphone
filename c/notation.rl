@@ -36,6 +36,7 @@
   len = 4; \
   fxval = 0; \
   fxmod = 0; \
+  dot = 0; \
   S->nlen++
 
 %%{
@@ -87,6 +88,7 @@
         else                 NOTE.tone = 'G';
       break;
     }
+    NOTE.dot = dot;
   }
 
   action Afx {
@@ -137,7 +139,8 @@
   oct = [1-8] %Aoct;
   fxmod = ( ("+"|"-") %{ fxmod = p[-1]; } (":"|space+) )?;
   fx = ("[" fxcmd (":"|space*) fxmod float "]" %Afx );
-  note = len? [a-gA-G] %{ tone = p[-1]; } mod? oct? fx* %Anote;
+  dot = [.] %{ dot = 1; };
+  note = len? [a-gA-G] %{ tone = p[-1]; } dot? mod? oct? fx* %Anote;
 
   main := |*
     len => {
@@ -160,7 +163,7 @@ bloops_track(bloops *B, bloopsaphone *P, char *track, int tracklen)
 {
   int cs, act, oct = 4, len = 4;
   bloopsatrack *S = (bloopsatrack *)malloc(sizeof(bloopsatrack));
-  char tone, mod, fxmod, *p, *pe, *pf, *ts, *te, *eof = 0;
+  char tone, mod, fxmod, dot, *p, *pe, *pf, *ts, *te, *eof = 0;
   bloopsafxcmd fxcmd = (bloopsafxcmd)0;
   float fxval = 0;
 
