@@ -1,4 +1,24 @@
+```
+      ~ about this fork ~
 
+  this fork slightly updates the original
+  bloopsaphone by implementing dotted
+  notation:
+
+      b.tune "+ 8 8C  8C 16C  8C. - 8Bb  8A 8G"
+
+  that plays the haunting melody from
+  "king of carrot flowers, pt 1." for the
+  full demo, see <ext/ruby/tune_king.rb>.
+
+  ok. we now take you to regularly
+  scheduled README, by why the lucky
+  stiff — who is missed every day.
+
+```
+
+
+```
       |~~              |~~
       |                |
      :$: bloopsaphone :$:
@@ -169,4 +189,4 @@
 
       The 'freq' setting is only used if the sound
       is played without a tune.
-
+```
