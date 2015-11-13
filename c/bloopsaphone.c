@@ -17,11 +17,13 @@
 #include "bloopsaphone.h"
 #include "bloopsaphone-internal.h"
 
+/*
 #ifdef PaStream
 #error ** Looks like you're linking against PortAudio 1.8!
 #error ** Bloopsaphone needs PortAudio 1.9 or greater.
 #error ** On Ubuntu, try: aptitude install portaudio19-dev.
 #endif
+*/
 
 #define SAMPLE_RATE 44100
 #define rnd(n) (rand() % (n + 1))
